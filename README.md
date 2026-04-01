@@ -9,7 +9,7 @@
 
 ### Dataset Details
 - Sayısal Veriler: train_FD001.txt, test_FD001.txt ve diğerleri. Bunları PyTorch modelimizde kullanacağız.
-  - <b>train_FDxxx.txt</b>: Modeli eğitmek için kullanacağız (Az önce RUL sütununu eklediğimiz dosya).
+  - <b>train_FDxxx.txt</b>: Modeli eğitmek için kullanacağız. (01_data_preprocessing.ipynb adımında RUL sütununu eklediğimiz dosya).
   - <b>test_FDxxx.txt</b>: Modelin performansını ölçmek için.
   - <b>RUL_FDxxx.txt</b>: Test setindeki motorların gerçek kalan ömür değerlerini içerir (Doğrulama için).
 
