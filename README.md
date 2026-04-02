@@ -1,28 +1,30 @@
 # SkyGuardAI: Havacılık Bakım ve Operasyon Asistanı
-- Bu projeyle birlikte, hem tahminleme (ML) hem de akıllı döküman analizi (GenAI) yeteneklerini birleştirerek tam anlamıyla bir "Agentic" yapı sunmayı hedefliyorum.
-- Bu platform; uçak motor verilerini analiz ederek arıza tahmini yapar ve teknik manuel dökümanları kullanarak teknisyenlere tamir adımları önerir.
-
+- Bu projeyle birlikte, hem prediction hem de akıllı döküman analizi (GenAI) yeteneklerini birleştirerek bir "Agentic" yapı kurmak hedeflenmiştir.
+- Bu platform;
+  - uçak motor verilerini analiz ederek arıza tahmini yapar ve
+  - teknik manuel dökümanları kullanarak teknisyenlere tamir adımları önerir.
+  
 
 ## Data Links:
-- Direkt Link: https://data.nasa.gov/docs/legacy/CMAPSSData.zip
-- Açıklama Linki: https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data
+- Veri indirme linki: https://data.nasa.gov/docs/legacy/CMAPSSData.zip
+- Veri açıklama linki: https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data
 
 ### Dataset Details
-- Sayısal Veriler: train_FD001.txt, test_FD001.txt ve diğerleri. Bunları PyTorch modelimizde kullanacağız.
-  - <b>train_FDxxx.txt</b>: Modeli eğitmek için kullanacağız. (01_data_preprocessing.ipynb adımında RUL sütununu eklediğimiz dosya).
+- Sayısal Veriler: train_FD001.txt, test_FD001.txt ve diğerleri. Bunları PyTorch modelinde kullanılacak.
+  - <b>train_FDxxx.txt</b>: Modeli eğitmek için kullanacağız. (1_preproces.ipynb: RUL sütunu çıkarılmıştır)
   - <b>test_FDxxx.txt</b>: Modelin performansını ölçmek için.
   - <b>RUL_FDxxx.txt</b>: Test setindeki motorların gerçek kalan ömür değerlerini içerir (Doğrulama için).
 
 - Dökümantasyon için PDF dosyası: Bu PDF'i Qdrant (Vektör Veri Tabanı) içine gömeceğiz.
-  - Senaryo: Senaryo: PyTorch modelin "Bu motorun ömrü 10 döngü kaldı, arıza riski var!" dediğinde, LangGraph ajanı gidip bu PDF'ten "Motor arıza belirtileri ve bakım adımları" dökümanını okuyup kullanıcıya rapor sunacak.
+  - Senaryo: PyTorch modelin "Bu motorun ömrü 10 döngü kaldı, arıza riski var!" dediğinde, LangGraph ajanı gidip bu PDF'ten "Motor arıza belirtileri ve bakım adımları" dökümanını okuyup kullanıcıya rapor sunacak.
 
 ## TechStack
-- ML Foundations: PyTorch (Motor sağlığı için LSTM veya derin öğrenme tabanlı regresyon).
-- GenAI & Agents: LangGraph (Döngüsel ajan akışları ve hata düzeltme süreçleri için).
-- Data & Storage: Qdrant (Vektör veri tabanı - döküman araması için).
-- MLOps: MLflow (Deney takibi ve model versiyonlama).
-- Integration: FastAPI (Hızlı ve modern REST API).
-- Frontend: Streamlit (Veri bilimi projelerini hızlıca web arayüzüne taşımak için).
+- ML Foundations: PyTorch (Motor sağlığı için LSTM veya derin öğrenme tabanlı regresyon)
+- GenAI & Agents: LangGraph (Döngüsel ajan akışları ve hata düzeltme süreçleri için)
+- Data & Storage: Qdrant (Vektör veri tabanı - döküman araması için)
+- MLOps: MLflow (Deney takibi ve model versiyonlama)
+- Integration: FastAPI (Hızlı ve modern REST API)
+- Frontend: Streamlit (Hızlı web arayüzü oluşturmak için)
 
 ## Project Folder Structure
 - /notebooks: PyTorch ile model eğitimi ve MLflow ile kaydedilen metrikler.
@@ -50,3 +52,5 @@
 ## Step-by-step
 ### 1. Kalan kullanım ömrü
 - Bir havacılık projesinde en kritik nokta, ham sensör verisinden "uçağın motoru ne zaman bozulacak?" (Remaining Useful Life - RUL) sorusuna yanıt verebilmektir.
+
+### 2. Kalan kullanım ömrü
